@@ -10,6 +10,14 @@ you do not need to install this for it to function, copy the raw code and paste 
 
 **the only data tracked is downloads**
 
+# notes
+
+this is primarily for me 
+
+`/* version + update check (reads the latest GitHub release; sends nothing about you) */`
+
+inside of this js element change VERSION='x.x' to the updated one
+
 <!-- Home of the **Local video player**: a single-file HTML video player (no install, no server) plus a small data trail of its versions and downloads.
 
 ## Get the player
