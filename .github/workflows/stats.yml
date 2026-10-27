@@ -1,0 +1,37 @@
+name: Update traffic stats
+
+on:
+  schedule:
+    - cron: "17 5 * * *"   # every day at 05:17 UTC
+  workflow_dispatch:        # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Collect download counts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p traffic
+          gh api "repos/${{ github.repository }}/releases?per_page=100" > /tmp/releases.json
+          jq '{
+                updated: (now | todate),
+                total_downloads: ([.[].assets[].download_count] | add // 0),
+                latest: (map(select(.draft == false and .prerelease == false)) | .[0].tag_name),
+                releases: [.[] | {version: .tag_name, published: .published_at, downloads: ([.assets[].download_count] | add // 0)}]
+              }' /tmp/releases.json > traffic/stats.json
+          [ -f traffic/history.csv ] || echo "date,total_downloads,latest_version" > traffic/history.csv
+          echo "$(date -u +%F),$(jq .total_downloads traffic/stats.json),$(jq -r .latest traffic/stats.json)" >> traffic/history.csv
+
+      - name: Commit changes
+        run: |
+          git config user.name "traffick-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add traffic
+          git diff --cached --quiet || (git commit -m "Update traffic stats" && git push)
