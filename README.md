@@ -1,6 +1,16 @@
 # traffick
 
-Home of the **Local video player**: a single-file HTML video player (no install, no server) plus a small data trail of its versions and downloads.
+LVD allows you to walk over the major issues that my school chromebook or other devices have
+
+i always hated trying to watch a movie on google drive or my chromebooks videoplayer purely because compared to the microsoft media player you are allowed to have captions and switch audio tracks
+
+meanwhile on the chromebook the best you have is live captioning and theres no functioning videoplayer that will locally run like this
+
+you do not need to install this for it to function, copy the raw code and paste it into a website like w3schools tryit editor or code.orgs sandbox, this doesn't require a server and the only external things it uses is an update checker and maybe a user made json browser if i decide to make it.
+
+**the only data tracked is downloads**
+
+<!-- Home of the **Local video player**: a single-file HTML video player (no install, no server) plus a small data trail of its versions and downloads.
 
 ## Get the player
 Download `video-player.html` from the [latest release](../../releases/latest), then open it in Chrome, Edge, Firefox or Safari.
@@ -18,3 +28,4 @@ When you open Settings, the player asks the public GitHub API for this repo's la
 1. Change `VERSION` in the player file.
 2. Releases > Draft a new release > tag `vX.Y` > attach `video-player.html` > Publish release.
 3. Add a short entry to `CHANGELOG.md`.
+-->
