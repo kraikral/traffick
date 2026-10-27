@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-27T01:10:23Z",
-  "total_downloads": 0,
-  "latest": "updates",
+  "updated": "2026-10-27T05:42:10Z",
+  "total_downloads": 1,
+  "latest": "v1.6",
   "releases": [
     {
-      "version": "updates",
+      "version": "v1.6",
       "published": "2026-10-27T01:09:31Z",
-      "downloads": 0
+      "downloads": 1
     }
   ]
 }
